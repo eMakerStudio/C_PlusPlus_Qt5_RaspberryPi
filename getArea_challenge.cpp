@@ -1,0 +1,78 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+// Base class
+class Shape  {
+
+public:
+   // pure virtual function providing interface framework.
+   virtual int getArea() = 0;
+	
+   void setWidth(int w) {
+      width = w;
+   }
+	
+   void setHeight(int h) {
+      height = h;
+   }
+	
+protected:
+   int width;
+   int height;
+};
+ 
+// Derived classes
+class Rectangle: public Shape {
+
+public:
+   int getArea() { 
+      return (width * height); 
+   }
+};
+
+class Triangle: public Shape {
+
+public:
+   int getArea() { 
+      return (width * height)/2; 
+   }
+};
+
+class Quadrate: public Shape {
+
+public:
+   int getArea() { 
+      return (width * height); 
+   }
+};
+ 
+// Main program 
+int main(void) {
+   Rectangle Rect;
+   Triangle  Tri;
+   Quadrate  Quad;
+ 
+   Rect.setWidth(5);
+   Rect.setHeight(7);
+   // Print the area of the object.
+   cout << "Result Rectangle area: " << Rect.getArea() << endl;
+
+   Tri.setWidth(5);
+   Tri.setHeight(7);
+	
+   // Print the area of the object.
+   cout << "Result Triangle area: " << Tri.getArea() << endl; 
+   
+   Quad.setWidth(7);
+   Quad.setHeight(7);
+	
+   // Print the area of the object.
+   cout << "Result Quadrate area: " << Quad.getArea() << endl; 
+
+
+   return 0;
+}
+
+
+
